@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Projeto - JavaScript</title>
+    <meta charset="utf-8"/>
+    <meta name="João Vitor" content="website">
+    <style>
+        body{
+            margin: 10;
+            padding: 0;
+            background-image: linear-gradient(to right,rgb(46,139,87), rgb(47,79,79));
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        header{
+            height: 100vh;
+            background-image: linear-gradient(to right,rgb(46,139,87), rgb(47,79,79));
+            background-repeat: no-repeat;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 112px;
+            margin: -5rem 0 0 0;
+            align-items: center;
+        }
+
+        button{
+            font-family: Arial, Helvetica, sans-serif;
+            height: 50px;
+            width: 200px;
+            justify-content: center;
+            text-decoration: none;
+            color: black;
+            padding: 1rem;
+            border: 1px solid black;
+            min-width: 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: .5s ease-in-out;
+            font-size: 25px;
+            margin:auto;
+            border-radius: 10px;
+        }
+
+        button:hover{
+            border:2px solid #002046;
+            background-color: #002046;
+            color: white;
+        }
+
+        .header1{
+            left: 0;
+            padding-left: 36px;
+            padding-right: 30px;
+            position: fixed;
+            top: 0;
+            -webkit-transition: opacity 0.5s,padding-left .125s;
+            transition: opacity 0.5s,padding-left .125s;
+            white-space: nowrap;
+            width: 100%;
+            height: 60px;
+            z-index: 20;
+        }
+  
+        .header-center{
+            display: table;
+            min-width: 100%;
+            table-layout: fixed;
+        }
+        
+        
+        .header-invisible{
+            color: inherit;
+        }
+  
+        .header-text{
+            font-family: Arial, Helvetica, sans-serif;
+            color:black;
+            font-size: 30px;
+            display: inline-block;
+            line-height: 1;
+            outline: none;
+            padding: 16px 12px;
+            text-decoration: none;
+            text-overflow: ellipsis;
+        }
+  
+  
+        .header-color {
+            background-image: linear-gradient(to right,#00FFFF, #002046);
+            bottom: 0;
+            height: 100%;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            -webkit-transition: opacity .125s;
+            transition: opacity .125s;
+            width: 100%;
+            z-index: -10;
+        }
+        
+        .header-container{
+            height: 100vh;
+            width: 100vw;
+            background-color: darkgrey;
+            background-repeat: no-repeat;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 112px;
+        }
+
+        .back{
+            margin: 200px 0 0 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+        }
+
+        .back a{
+            font-family: Arial, Helvetica, sans-serif;
+            text-decoration: none;
+            color: black;
+            padding: 1rem;
+            padding-left: 100px;
+            padding-right: 100px;
+            border: 1px solid black;
+            transition: .5s ease-in-out;
+            border-radius:10px;
+        }
+
+        .back a:hover{
+            background-color: #002046;
+            color: white;
+        }
+
+        .wrapper{
+            text-align: center;
+            margin
+        }
+
+    </style>
+
+    <script>
+        "use strict"
+
+        var hh = 0;
+        var mm = 0;
+        var ss = 0;
+
+        var tempo = 1000;
+        var cron;
+
+        function button5() {
+            cron=setInterval(() => {timer();},tempo)
+
+        }
+
+        function button6(){ 
+            clearInterval(cron); 
+
+
+        }
+
+        function button7(){
+
+            clearInterval(cron);
+            hh = 0;
+            mm = 0;
+            ss = 0;
+
+            document.getElementById("stopwatch").innerText= "00:00:00" ;
+
+
+        }
+
+        function timer(){
+
+            ss++;
+
+            if (ss == 60){
+                ss=0;
+                mm++;
+
+                if(mm == 60){
+                    mm=0;
+                    hh++;
+                }
+            }
+
+            var format = (hh < 10 ? "0" + hh : hh) + ":" + (mm < 10 ? "0" + mm : mm) + ":" + (ss < 10 ? "0" + ss : ss);
+            document.getElementById("stopwatch").innerText= format ;
+
+        }
+    </script>
+</head>
+
+    <body>
+        <header>
+
+            <div class="header1">
+                <div class="header-center">
+                    <div class="T1fmSc">
+                        <a class="header-invisible" href="https://joaoteixeiraprog.github.io/javascript/">
+                            <span class="header-text"><b>Projeto - JavaScript</b></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="header-color"></div>
+            </div>
+
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            
+            
+            <div class="back">
+                <a href="https://joaoteixeiraprog.github.io/projeto/"><b>Voltar</b></a>
+            </div>
+            <br>
+
+            <h1>Projeto - Calculadora</h1>
+            
+            <br>
+
+            <button onclick="button1()">Adição</button>
+            <p id="calculo"></p>
+            <script>
+                function button1()
+                {
+                    var soma1;
+                    var soma2;
+                    soma1 = prompt("Digite o primeiro número", );
+                    soma2 = prompt("Digite o segundo número", );
+                    s1 = Number(soma1);
+                    s2 = Number(soma2);
+                    soma = Number(s1+s2);
+                    const calculo = ["Resultado = "+soma];
+                    document.getElementById("calculo").innerHTML = calculo;
+                }
+            </script>
+
+            <button onclick="button2()">Subtração</button>
+            <p id="calculo1"></p>
+            <script>
+                function button2()
+                {
+                    var sub1;
+                    var sub2;
+                    sub1 = prompt("Digite o primeiro número", );
+                    sub2 = prompt("Digite o segundo número", );
+                    s1 = Number(sub1);
+                    s2 = Number(sub2);
+                    sub = Number(s1-s2);
+                    const calculo = ["Resultado = "+sub];
+                    document.getElementById("calculo1").innerHTML = calculo;
+                }
+            </script>
+
+            <button onclick="button3()">Divisão</button>
+            <p id="calculo2"></p>
+            <script>
+                function button3()
+                {
+                    var div1;
+                    var div2;
+                    div1 = prompt("Digite o primeiro número", );
+                    div2 = prompt("Digite o segundo número", );
+                    d1 = Number(div1);
+                    d2 = Number(div2);
+                    div = Number(d1/d2);
+                    const calculo = ["Resultado = "+div];
+                    document.getElementById("calculo2").innerHTML = calculo;
+                    
+                }
+            </script>
+
+            <button onclick="button4()">Multiplicação</button>
+            <p id="calculo3"></p>
+                <script>
+                    function button4()
+                    {
+                        var mult1;
+                        var mult2;
+                        mult1 = prompt("Digite o primeiro número", );
+                        mult2 = prompt("Digite o segundo número", );
+                        m1 = Number(mult1);
+                        m2 = Number(mult2);
+                        mult = Number(m1*m2);
+                        const calculo = ["Resultado = "+mult];
+                        document.getElementById("calculo3").innerHTML = calculo;
+                    }
+                </script>
+
+            <br>
+            <br>
+
+
+            <div class="wrapper">
+
+                <h1 align="center" >Projeto - Cronômetro</h1>
+
+                <h2 align="center" id="stopwatch">00:00:00</h2>
+
+
+                <button align="center"  onclick="button5();">Start</button>
+                <br>
+                <br>
+                <button onclick="button6();">Stop</button>
+                <br>
+                <br>
+                <button onclick="button7();">Reset</button>
+
+            </div>
+        <br>
+        <br>
+        </header>
+    </body>    
+</html>
